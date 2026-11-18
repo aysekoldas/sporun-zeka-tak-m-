@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: sporun-zeka-takimi
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start

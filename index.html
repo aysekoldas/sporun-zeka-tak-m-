@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sporun Zekâ Takımı</title><link rel="stylesheet" href="/style.css"><script src="/socket.io/socket.io.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script></head>
+<body><div class="bg"></div><main class="wrap">
+<header><div class="logo">🏆</div><div><h1>Sporun Zekâ Takımı</h1><p class="subtitle">Büyük Labirent Macerası</p></div><span class="badge">18 GÖREV</span></header>
+<section id="home" class="card home"><h2>Macera başlıyor!</h2><p>Öğretmen oyunu başlatır. Öğrenciler QR kod veya oda koduyla katılır.</p><div class="homeBtns"><button class="primary" id="createRoom">👩‍🏫 Öğretmen Paneli</button><button class="secondary" id="showJoin">🎒 Öğrenci Paneli</button></div>
+<div id="joinBox" class="joinBox hidden"><label>Oda kodu<input id="joinCode" maxlength="6" placeholder="Örn. A1B2C3"></label><label>Adın<input id="studentName" maxlength="20" placeholder="Adını yaz"></label><label>Takımını seç<select id="studentTeam"><option value="">Takım seç</option><option value="0">🔴 Kırmızı Takım</option><option value="1">🔵 Mavi Takım</option><option value="2">🟡 Sarı Takım</option><option value="3">🟢 Yeşil Takım</option><option value="4">🟠 Turuncu Takım</option><option value="5">🟣 Mor Takım</option></select></label><button class="primary" id="joinRoom">Oyuna Katıl</button><p id="joinError" class="error"></p></div></section>
+<section id="teacher" class="hidden">
+<div class="topline"><div><span class="eyebrow">ÖĞRETMEN PANELİ</span><h2>Oyun kontrol merkezi</h2></div><div class="roomcode">ODA KODU <strong id="roomCode">------</strong></div></div>
+<div class="grid2"><div class="card"><h3>📲 Öğrencileri davet et</h3><div id="qrcode"></div><p class="muted">QR kodu sınıfa yansıt veya bağlantıyı paylaş. Öğrenciler aynı oda koduyla katılır.</p><div class="copyrow"><input id="shareLink" readonly><button id="copyLink" class="secondary">Kopyala</button></div></div><div class="card"><h3>🎮 Oyun yönetimi</h3><div class="controlrow"><button id="startBtn" class="primary">▶ Başlat</button><button id="pauseBtn" class="warn">⏸ Duraklat</button><button id="resumeBtn" class="secondary">Devam et</button></div><div class="controlrow"><button id="prevBtn" class="secondary">← Önceki</button><button id="nextBtn" class="primary">Sonraki soru →</button></div><button id="resetBtn" class="danger full">Oyunu sıfırla</button><p id="teacherStatus" class="status">Öğrenciler bekleniyor.</p></div></div>
+<div class="card"><div class="sectionhead"><h3>🧩 Labirent ve takım durumu</h3><span id="questionCount" class="badge">Henüz başlamadı</span></div><div id="maze" class="maze"></div></div>
+<div class="card"><div class="sectionhead"><h3>📊 Takımlar</h3><span class="muted">Öğretmen fiziksel görev tamamlanınca takıma onay verebilir.</span></div><div id="teamBoard" class="teamBoard"></div></div>
+<div id="teacherQuestion" class="card questionCard"><div class="eyebrow">GÖREV EKRANI</div><h2>Oyun başlamayı bekliyor</h2><p>Başlat düğmesine bastığında ilk soru burada görünecek.</p></div>
+</section>
+<section id="student" class="hidden">
+<div class="studentTop"><div><span class="eyebrow">ÖĞRENCİ PANELİ</span><h2 id="welcome">Takımına hoş geldin!</h2></div><span id="studentTeamBadge" class="badge"></span></div>
+<div class="card"><div class="sectionhead"><h3>🗺️ Takımının labirent yolculuğu</h3><span id="studentProgress" class="badge">0 / 18</span></div><div id="studentMaze" class="maze"></div></div>
+<div id="studentQuestion" class="card questionCard"><h2>Öğretmenin oyunu başlatmasını bekle!</h2><p>Hazır olduğunda sorular burada görünecek.</p></div>
+<div class="card"><h3>🏅 Takım puanları</h3><div id="studentScores" class="teamBoard"></div></div>
+</section>
+<div id="toast" class="toast hidden"></div><footer>Birlikte düşün • Birlikte hareket et • Hazineye ulaş!</footer></main><script src="/client.js"></script></body></html>
