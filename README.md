@@ -1,0 +1,1 @@
+# sporun-zeka-tak-m-
